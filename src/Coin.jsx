@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import PlotChart from './Charts/PlotChart';
 import './Coin.css';
 
 const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) => {
@@ -13,7 +14,7 @@ const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) =
         return (
             <p className="coin-percent green">{priceChange.toFixed(2)}%</p>
         )
-    }, [price, priceChange]);
+    }, [priceChange]);
 
     return (
         <div className="coin-container">
@@ -35,6 +36,7 @@ const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) =
                     </p>
                 </div>
             </div>
+            <PlotChart historicalData={[1, 2, 3, 4, 5, 6, 7]}/>
         </div>
     )
 })
