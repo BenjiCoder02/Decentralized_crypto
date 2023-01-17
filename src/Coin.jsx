@@ -1,9 +1,20 @@
-import React from 'react'
-import "./Coin.css"
-
-//Coin component that recieves API data from the parent component
+import React, { useCallback } from 'react';
+import './Coin.css';
 
 const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) => {
+
+    const RenderPrice = useCallback(({ price }) => {
+        if (price < 0) {
+            return (
+                <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
+            );
+        }
+            
+        return (
+            <p className="coin-percent green">{priceChange.toFixed(2)}%</p>
+        )
+    }, [price, priceChange]);
+
     return (
         <div className="coin-container">
             <div className="coin-row">
@@ -15,16 +26,10 @@ const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) =
                 </div>
                 <div className="coin-data">
                     <p className="coin-price">${price}</p>
-                    {/* using toLocaleString to add commas for currency formatting*/}
-
                     <p className="coin-volume">${volume.toLocaleString()}</p>
-                    {priceChange < 0 ? (
-                       /* adding classes for price changes and fixing the change percentage to 2 decimal points*/
-                        <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
-                    ) : (
-                        <p className="coin-percent green">{priceChange.toFixed(2)}%</p>
-                    )
-                    }
+                    <RenderPrice 
+                        price={price}
+                    />
                     <p className="coin-marketcap">
                         Mkt Cap: ${marketCap.toLocaleString()}
                     </p>
