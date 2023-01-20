@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import PlotChart from './Charts/PlotChart';
+import PlotChart from './Graphs/PlotChart';
 import './Coin.css';
 
 const Coin = (({ name, image, symbol, price, volume, priceChange, marketCap }) => {
