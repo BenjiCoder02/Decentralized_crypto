@@ -42,5 +42,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://benjicoder02.github.io/Decentralized_crypto"
+  "homepage": "https://benjicoder02.github.io/Decentralized_crypto",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }
