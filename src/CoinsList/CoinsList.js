@@ -3,7 +3,7 @@ import axios from 'axios';
 import Coin from '../Coin';
 import { ALL_COINS } from '../Constants/Constants';
 
-const DATA_FETCH_INTERVAL = 30000;
+const DATA_FETCH_INTERVAL = 60000;
 
 function CoinsList() {
     const [coins, setCoins] = useState([]);
@@ -13,17 +13,17 @@ function CoinsList() {
 
     const getCryptoData = useCallback(() => {
         axios.get(ALL_COINS).then((res) => {
-                setCoins(res.data)
-            })
-        .catch((error) => {
-            console.error(`Error on request ${ALL_COINS}: ${error}`);
-            setError(true);
-        });
+            setCoins(res.data)
+        })
+            .catch((error) => {
+                console.error(`Error on request ${ALL_COINS}: ${error}`);
+                setError(true);
+            });
     }, [setCoins]);
 
     useEffect(() => {
         getCryptoData();
-        const interval = setInterval(function() {
+        const interval = setInterval(function () {
             getCryptoData();
         }, DATA_FETCH_INTERVAL);
         setIntervalID(interval);
@@ -46,6 +46,7 @@ function CoinsList() {
             return (
                 <Coin
                     key={coin.id}
+                    id={coin.id}
                     name={coin.name}
                     image={coin.image}
                     symbol={coin.symbol}
@@ -53,6 +54,7 @@ function CoinsList() {
                     price={coin.current_price}
                     priceChange={coin.price_change_percentage_24h}
                     volume={coin.total_volume}
+                    last_updated={coin.last_updated}
                 />
             )
         })
@@ -71,7 +73,7 @@ function CoinsList() {
             <div className="coin-search">
                 <h1 className="coin-text">
                     <i className="fab fa-dyalog"></i>
-                        &nbsp;DECENTRALIZED
+                    &nbsp;DECENTRALIZED
                 </h1>
                 <form>
                     <input

@@ -11,6 +11,7 @@
   height: 80px;
   border-bottom: 1px solid #d7d7d7;
   width: 900px;
+  position: relative;
 }
 
 .coin {
@@ -25,7 +26,7 @@
   width: 150px;
 }
 
-.coin img {
+.coin .coin-info img {
   height: 30px;
   width: 30px;
   margin-right: 10px;
@@ -64,4 +65,22 @@
 
 .green {
   color: rgb(95, 255, 95);
+}
+
+.chart-container {
+  display: none;
+}
+
+.hover .chart-container {
+  display: block;
+  left: 20px;
+  top: -10px;
+  z-index: 100;
+  position: absolute;
+
+}
+
+.hover .chart-container canvas {
+  width: auto !important;
+  min-height: 350px !important;
 }
