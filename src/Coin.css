@@ -3,6 +3,12 @@
   justify-content: center;
 }
 
+.coin-info,
+.coin-row {
+  display: flex;
+  display: flex;
+}
+
 .coin-row {
   display: flex;
   flex-direction: row;
@@ -29,7 +35,6 @@
 .coin .coin-info img {
   height: 30px;
   width: 30px;
-  margin-right: 10px;
 }
 
 .coin-symbol {
@@ -71,9 +76,18 @@
   display: none;
 }
 
+.coin-info {
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.coin-info.hover {
+  height: auto;
+}
+
 .hover .chart-container {
   display: block;
-  left: 20px;
+  left: 25px;
   top: -10px;
   z-index: 100;
   position: absolute;
