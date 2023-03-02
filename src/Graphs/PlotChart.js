@@ -3,7 +3,7 @@ import 'chart.js/auto';
 import { useCallback, useEffect, useState } from 'react';
 import { Chart, Line } from 'react-chartjs-2';
 import { GET_COIN_HISTORICAL_DATA } from '../Constants/Constants';
-import { CHART_CONFIG_DEFAULTS, OPTIONS } from './ChartConfig';
+import { OPTIONS } from './ChartConfig';
 
 function PlotChart(props) {
 
@@ -19,20 +19,16 @@ function PlotChart(props) {
             const labelArray = [];
 
             for (let i = 0; i < prices.length; i++) {
-                let currentData = CHART_CONFIG_DEFAULTS;
                 const newDate = new Date(prices[i][0]);
-                const formatDate = `${newDate.getHours()}:${newDate.getSeconds()}`
+                let formatDate = `${newDate.getHours()}:${newDate.getSeconds()}`
                 labelArray.push(formatDate);
-                currentData.id = prices[i][1];
-                currentData.label = formatDate;
-                currentData.data = prices;
-                arrayOfChartData.push(currentData);
+                arrayOfChartData.push(prices[i][1]);
             };
 
             setLabels(prevState => [...prevState, ...labelArray]);
             setChartData(prevState => [...prevState, ...arrayOfChartData]);
         }).catch(err => { console.error(err) });
-    }, [URL])
+    }, [URL, chartData, labels])
 
     useEffect(() => {
         fillData();
@@ -42,7 +38,19 @@ function PlotChart(props) {
         <Line datasetIdKey={name}
             data={{
                 labels: labels,
-                datasets: chartData,
+                datasets: [
+                    {
+                        label: 'Prices',
+                        data: labels.map((data, index) => chartData[index]),
+                        backgroundColor: 'white',
+                        color: 'white',
+                        borderColor: 'white',
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,0.8)",
+                        highlightFill: "rgba(220,220,220,0.75)",
+                        highlightStroke: "rgba(220,220,220,1)",
+                    }
+                ],
             }}
             options={OPTIONS}
         />
