@@ -8,7 +8,7 @@ function AllRoutes() {
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path='/home' element={<Home />} />
+                <Route path='/Decentralized_crypto/home' element={<Home />} />
             </Routes>
         </BrowserRouter>
     );
