@@ -1,16 +1,16 @@
 import React from "react";
-import { Route, Link, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, Link, HashRouter, Routes } from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import Home from "../Pages/Home";
 
 function AllRoutes() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Navbar />
             <Routes>
-                <Route path='/Decentralized_crypto/home' element={<Home />} />
+                <Route path='/home' element={<Home />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
