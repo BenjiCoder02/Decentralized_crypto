@@ -1,11 +1,11 @@
 import React from 'react'
 import './App.css';
-import CoinsList from './CoinsList/CoinsList';
+import AllRoutes from './Routes/Routes';
 
 
 function App() {
   return (
-    <CoinsList />
+    <AllRoutes />
   );
 }
 
