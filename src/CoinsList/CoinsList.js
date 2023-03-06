@@ -5,14 +5,15 @@ import { ALL_COINS } from '../Constants/Constants';
 
 const DATA_FETCH_INTERVAL = 60000;
 
-function CoinsList() {
+function CoinsList(props) {
+    const { search, quantity } = props;
     const [coins, setCoins] = useState([]);
-    const [search, setSearch] = useState('');
     const [error, setError] = useState(false);
     const [intervalID, setIntervalID] = useState(null);
 
     const getCryptoData = useCallback(() => {
-        axios.get(ALL_COINS).then((res) => {
+        const URL = ALL_COINS.replace('{QTY}', quantity);
+        axios.get(URL).then((res) => {
             setCoins(res.data)
         })
             .catch((error) => {
@@ -31,19 +32,31 @@ function CoinsList() {
         return () => clearInterval(intervalID);
     }, [getCryptoData]);
 
-    const handleChange = useCallback((e) => {
-        setSearch(e.target.value)
-    }, [setSearch]);
-
-    const filteredCoins = useCallback(() =>
-        coins.filter(coin =>
+    const filteredCoins = useCallback(() => {
+        if (!search) {
+            return coins;
+        }
+        return coins.filter(coin =>
             coin.name.toLowerCase()
-                .includes(search.toLocaleLowerCase())), [coins, search]);
+                .includes(search.toLocaleLowerCase()));
+    }, [coins, search]);
 
-    const RenderAllCoins = useCallback(() => {
-        const coins = filteredCoins();
-        return coins.map((coin) => {
-            return (
+
+
+
+    const filterCoins = filteredCoins() || coins;
+
+    if (error) {
+        return (
+            <h1>
+                There was an error fetching data, please try refreshing the page.
+            </h1>
+        );
+    }
+
+    return (
+        <div className="coin-app">
+            {filterCoins.map((coin) => (
                 <Coin
                     key={coin.id}
                     id={coin.id}
@@ -57,35 +70,7 @@ function CoinsList() {
                     last_updated={coin.last_updated}
                 />
             )
-        })
-    }, [filteredCoins]);
-
-    const RenderErrorMessage = useCallback(() => {
-        if (!error) {
-            return null;
-        }
-
-        return <h1>There was an error fetching data, please try refreshing the page.</h1>;
-    }, [error])
-
-    return (
-        <div className="coin-app">
-            <div className="coin-search">
-                <h1 className="coin-text">
-                    <i className="fab fa-dyalog"></i>
-                    &nbsp;DECENTRALIZED
-                </h1>
-                <form>
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="coin-input"
-                        onChange={handleChange}
-                    />
-                </form>
-            </div>
-            <RenderErrorMessage />
-            <RenderAllCoins />
+            )}
         </div>
     );
 }
