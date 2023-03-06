@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Decentralized_crypto/static/css/main.17d290ca.chunk.css",
-    "main.js": "/Decentralized_crypto/static/js/main.bd960732.chunk.js",
-    "main.js.map": "/Decentralized_crypto/static/js/main.bd960732.chunk.js.map",
+    "main.js": "/Decentralized_crypto/static/js/main.83132755.chunk.js",
+    "main.js.map": "/Decentralized_crypto/static/js/main.83132755.chunk.js.map",
     "runtime-main.js": "/Decentralized_crypto/static/js/runtime-main.615b7cac.js",
     "runtime-main.js.map": "/Decentralized_crypto/static/js/runtime-main.615b7cac.js.map",
     "static/js/2.a5f7ca85.chunk.js": "/Decentralized_crypto/static/js/2.a5f7ca85.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.615b7cac.js",
     "static/js/2.a5f7ca85.chunk.js",
     "static/css/main.17d290ca.chunk.css",
-    "static/js/main.bd960732.chunk.js"
+    "static/js/main.83132755.chunk.js"
   ]
 }
