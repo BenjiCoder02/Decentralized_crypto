@@ -1,0 +1,9 @@
+.navbar {
+    min-height: 55px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #000000;
+    color: #fff;
+    z-index: 1;
+}

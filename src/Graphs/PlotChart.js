@@ -28,7 +28,7 @@ function PlotChart(props) {
             setLabels(prevState => [...prevState, ...labelArray]);
             setChartData(prevState => [...prevState, ...arrayOfChartData]);
         }).catch(err => { console.error(err) });
-    }, [URL, chartData, labels])
+    }, [URL])
 
     useEffect(() => {
         fillData();
