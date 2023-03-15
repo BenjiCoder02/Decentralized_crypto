@@ -17,7 +17,6 @@ h4,
 }
 
 .dark-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
     min-height: 100%;
     width: 100%;
     flex: 1
@@ -61,7 +60,7 @@ h4,
 
 .main,
 .coin-list {
-    background-image: url('../assets/landing-page-bg.webp');
+    background-color: #000000;
     background-size: cover;
     background-repeat: no-repeat;
 }

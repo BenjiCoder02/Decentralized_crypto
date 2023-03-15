@@ -9,14 +9,16 @@ function Navbar() {
     }, [setSearch]);
 
     return (
-        <div className="d-flex justify-content-between align-items-center navbar">
-            <span className="ms-3">
-                <h2>
-                    <i className="fab fa-dyalog"></i>
-                    CNTRLZD
-                </h2>
-            </span>
-            <span className="me-3">
+        <div className="">
+            <div className="d-flex justify-content-between align-items-center navbar">
+                <span className="ms-3 logo">
+                    <h2>
+                        <i className="fab fa-dyalog"></i>
+                        CNTRLZD
+                    </h2>
+                </span>
+            </div>
+            <span className="me-3 search-bar-sm">
                 <form>
                     <input
                         type="text"

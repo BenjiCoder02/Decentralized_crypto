@@ -7,3 +7,21 @@
     color: #fff;
     z-index: 1;
 }
+
+.navbar .logo {
+    min-width: 133px;
+}
+
+
+.search-bar-sm {
+    position: fixed;
+    display: block;
+    z-index: 1;
+    top: 60px;
+    right: 0;
+}
+
+.navbar {
+    align-items: center;
+    justify-content: center;
+}
