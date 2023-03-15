@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/Decentralized_crypto/home/static/css/main.a0932819.chunk.css",
-    "main.js": "/Decentralized_crypto/home/static/js/main.b88b0620.chunk.js",
-    "main.js.map": "/Decentralized_crypto/home/static/js/main.b88b0620.chunk.js.map",
-    "runtime-main.js": "/Decentralized_crypto/home/static/js/runtime-main.1be76b5c.js",
-    "runtime-main.js.map": "/Decentralized_crypto/home/static/js/runtime-main.1be76b5c.js.map",
-    "static/js/2.1be5ccd3.chunk.js": "/Decentralized_crypto/home/static/js/2.1be5ccd3.chunk.js",
-    "static/js/2.1be5ccd3.chunk.js.map": "/Decentralized_crypto/home/static/js/2.1be5ccd3.chunk.js.map",
-    "index.html": "/Decentralized_crypto/home/index.html",
-    "static/css/main.a0932819.chunk.css.map": "/Decentralized_crypto/home/static/css/main.a0932819.chunk.css.map",
-    "static/js/2.1be5ccd3.chunk.js.LICENSE.txt": "/Decentralized_crypto/home/static/js/2.1be5ccd3.chunk.js.LICENSE.txt",
-    "static/media/Home.css": "/Decentralized_crypto/home/static/media/landing-page-bg.2f1f6012.webp"
+    "main.css": "/Decentralized_crypto/static/css/main.32e32038.chunk.css",
+    "main.js": "/Decentralized_crypto/static/js/main.ec9b65fa.chunk.js",
+    "main.js.map": "/Decentralized_crypto/static/js/main.ec9b65fa.chunk.js.map",
+    "runtime-main.js": "/Decentralized_crypto/static/js/runtime-main.615b7cac.js",
+    "runtime-main.js.map": "/Decentralized_crypto/static/js/runtime-main.615b7cac.js.map",
+    "static/js/2.78c211db.chunk.js": "/Decentralized_crypto/static/js/2.78c211db.chunk.js",
+    "static/js/2.78c211db.chunk.js.map": "/Decentralized_crypto/static/js/2.78c211db.chunk.js.map",
+    "index.html": "/Decentralized_crypto/index.html",
+    "static/css/main.32e32038.chunk.css.map": "/Decentralized_crypto/static/css/main.32e32038.chunk.css.map",
+    "static/js/2.78c211db.chunk.js.LICENSE.txt": "/Decentralized_crypto/static/js/2.78c211db.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1be76b5c.js",
-    "static/js/2.1be5ccd3.chunk.js",
-    "static/css/main.a0932819.chunk.css",
-    "static/js/main.b88b0620.chunk.js"
+    "static/js/runtime-main.615b7cac.js",
+    "static/js/2.78c211db.chunk.js",
+    "static/css/main.32e32038.chunk.css",
+    "static/js/main.ec9b65fa.chunk.js"
   ]
 }
