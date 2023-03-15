@@ -20,7 +20,7 @@ function CoinsList(props) {
                 console.error(`Error on request ${ALL_COINS}: ${error}`);
                 setError(true);
             });
-    }, [setCoins]);
+    }, [quantity]);
 
     useEffect(() => {
         getCryptoData();
@@ -41,9 +41,6 @@ function CoinsList(props) {
                 .includes(search.toLocaleLowerCase()));
     }, [coins, search]);
 
-
-
-
     const filterCoins = filteredCoins() || coins;
 
     if (error) {
@@ -56,6 +53,14 @@ function CoinsList(props) {
 
     return (
         <div className="coin-app">
+            <ul className="list-unstyled d-flex justify-content-between head-title">
+                <li>Coin Name</li>
+                <li>Symbol</li>
+                <li>Current Price</li>
+                <li>Trade Volume</li>
+                <li>Price Change %</li>
+                <li>Market Cap.</li>
+            </ul>
             {filterCoins.map((coin) => (
                 <Coin
                     key={coin.id}

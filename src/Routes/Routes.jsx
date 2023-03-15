@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link, HashRouter, Routes } from 'react-router-dom';
+import { Route, HashRouter, Routes } from 'react-router-dom';
 import Navbar from "../Navbar/Navbar";
 import Home from "../Pages/Home";
 
@@ -8,6 +8,7 @@ function AllRoutes() {
         <HashRouter>
             <Navbar />
             <Routes>
+                <Route path='/' element={<Home />} />
                 <Route path='/home' element={<Home />} />
             </Routes>
         </HashRouter>

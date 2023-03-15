@@ -1,38 +1,37 @@
 .coin-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .coin-info,
 .coin-row {
   display: flex;
-  display: flex;
 }
 
 .coin-row {
-  display: flex;
   flex-direction: row;
   justify-items: start;
   align-items: center;
   height: 80px;
   border-bottom: 1px solid #d7d7d7;
-  width: 900px;
   position: relative;
+  flex: 1;
 }
 
 .coin {
   display: flex;
   align-items: center;
-  padding-right: 24px;
   min-width: 300px;
+  width: 100%;
 }
 
 .coin h1 {
   font-size: 16px;
-  width: 150px;
+  width: auto;
 }
 
-.coin .coin-info img {
+.coin-info img {
   height: 30px;
   width: 30px;
 }
@@ -97,4 +96,25 @@
 .hover .chart-container canvas {
   width: auto !important;
   min-height: 350px !important;
+}
+
+.coin>li {
+  width: 120px;
+  word-wrap: break-word;
+  word-break: break-all;
+
+}
+
+@media screen and (max-width: 992px) {
+  .coin-row {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .coin,
+  .coin-data {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

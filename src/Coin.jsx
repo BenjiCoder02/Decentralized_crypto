@@ -8,8 +8,8 @@ const Coin = (({ name, id, image, symbol, price, volume, priceChange, marketCap,
     const [chartData, setChartData] = useState([]);
     const [labels, setLabels] = useState([]);
 
-    const RenderPrice = useCallback(({ price }) => {
-        if (price < 0) {
+    const RenderPrice = useCallback(() => {
+        if (priceChange < 0) {
             return (
                 <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
             );
@@ -37,7 +37,15 @@ const Coin = (({ name, id, image, symbol, price, volume, priceChange, marketCap,
     const setChartDataForCoin = useCallback((chartdata, labels) => {
         setChartData(prevState => [...prevState, ...chartdata]);
         setLabels(prevState => [...prevState, labels]);
-    }, [])
+    }, []);
+
+    const formatPrice = (price) => {
+        const priceLabel = ['T.', 'H.', 'M.', 'B.']
+        const priceArr = price.split(',');
+
+        return `${priceArr[0]} ${priceLabel[priceArr.length - 1]}`
+
+    }
 
     const RenderChart = useCallback(() => {
         if (!isActive) {
@@ -59,32 +67,29 @@ const Coin = (({ name, id, image, symbol, price, volume, priceChange, marketCap,
     return (
         <div className="coin-container">
             <div className="coin-row">
-                <div className="coin">
-                    <div
-                        className={`coin-info ${name}`}
-                        id={`${name}-chart`}
-                        onMouseEnter={handleMouseHover}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <img src={image} alt="crypto" id={name} className="coin-hover-effect" />
-                        <div className="chart-container">
-                            <RenderChart />
+                <ul className="list-unstyled d-flex justify-content-around align-items-center coin">
+                    <li>
+                        <div
+                            className={`coin-info ${name}`}
+                            id={`${name}-chart`}
+                            onMouseEnter={handleMouseHover}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <img src={image} alt="crypto" id={name} className="coin-hover-effect" />
+                            <div className="chart-container">
+                                <RenderChart />
+                            </div>
                         </div>
-                    </div>
-                    <h1>{name}</h1>
-                    <p className="coin-symbol">{symbol}</p>
-
-                </div>
-                <div className="coin-data">
-                    <p className="coin-price">${price}</p>
-                    <p className="coin-volume">${volume.toLocaleString()}</p>
-                    <RenderPrice
-                        price={price}
-                    />
-                    <p className="coin-marketcap">
-                        Mkt Cap: ${marketCap.toLocaleString()}
+                        {/*<h1>{name}</h1>*/}</li>
+                    <li><p className="coin-symbol">{symbol}</p></li>
+                    <li><p className="coin-price">${price}</p></li>
+                    <li><p className="coin-volume">${formatPrice(volume.toLocaleString())}</p></li>
+                    <li><RenderPrice /></li>
+                    <li><p className="coin-marketcap">
+                        Mkt Cap: ${formatPrice(marketCap.toLocaleString())}
                     </p>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
     )
